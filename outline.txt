@@ -1,0 +1,37 @@
+job:
+    -title
+    -job_type[part_time,full_time]
+    -description
+    -published_at
+    -vacancy
+    -salary
+    -category
+    -experience
+    
+
+    
+
+    -apply job
+    -post job
+
+
+
+blog:
+    title
+    description
+    published_at
+    category
+    tags
+    author
+
+    search
+    comment
+    recent posts
+
+
+contact
+home
+
+
+
+login
