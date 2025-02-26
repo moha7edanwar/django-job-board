@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
 
     'job',
+    "django_bootstrap5",
 ]
 
 MIDDLEWARE = [

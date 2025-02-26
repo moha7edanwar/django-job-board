@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django.contrib.auth.models import User
 # Create your models here.
 
 JOB_TYPE=[
@@ -8,6 +9,7 @@ JOB_TYPE=[
 ]
 
 class job(models.Model):
+    owner = models.ForeignKey(User , related_name= 'job_owner' , on_delete=models.CASCADE)
     title=models.CharField(max_length=100)
     job_type = models.CharField(max_length=25  ,choices = JOB_TYPE)
     description = models.CharField(max_length=1000)
@@ -39,3 +41,16 @@ class category(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Apply(models.Model):
+    job = models.ForeignKey(job , related_name= 'apply_job' ,on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=500)
+    website = models.URLField (max_length=500)
+    cv = models.FileField(upload_to='job/files')
+    coverliter = models.TextField()
+
+    def __str__(self):
+        return self.name 
+    
